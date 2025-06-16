@@ -9,56 +9,55 @@ export function generarPrompt({
   nombreConsultado,
   fechaConsultado
 }) {
-  const nombresCartas = cartas.map(c => c.nombre).join(', ');
+  const nombresCartas = cartas.map((c) => c.nombre).join(', ');
 
-  let prompt = `Actuá como una tarotista sabia, espiritual y empática. Vas a realizar una lectura con el Tarot Rider-Waite para ${nombre}, nacido/a el ${fecha}`;
-  
-  if (nombreConsultado && fechaConsultado) {
-    prompt += `, que consulta por ${nombreConsultado}, nacido/a el ${fechaConsultado}`;
-  }
-
-  prompt += `. Las cartas seleccionadas, en el orden exacto en que salieron, son: ${nombresCartas}.`;
-
-  prompt += `\n\nResponde como si estuvieras en una sesión personalizada y amorosa. Usá un tono cálido, profesional y espiritual, siempre hablando en segunda persona ("tú", "te", "contigo").`;
-  prompt += `\n\n⚠️ RESPONDE siguiendo el ORDEN EXACTO en que salieron las cartas. Cada interpretación debe respetar esa secuencia sin reordenarlas.`;
-
-  // Normalizar clave
+  // Normalizar tipo de lectura
   const clavesMapeadas = {
     'amor': 'Amor',
     'pareja': 'Pareja',
-    'vínculo': 'Vinculo',
     'vinculo': 'Vinculo',
     'tradicional': 'Tradicional',
     'celta': 'Celta',
-    'abundancia': 'Abundancia',
     'abundancia, prosperidad y protección': 'Abundancia',
-    'protección': 'Proteccion',
     'protección y energía': 'Proteccion',
     'general': 'General',
     'expareja': 'Expareja',
     'nuevo vínculo amoroso': 'NuevoVinculo',
-    'nuevo vínculo': 'NuevoVinculo',
     'vidas pasadas': 'VidasPasadas'
   };
 
-  const claveNormalizada = tipoLectura.trim().toLowerCase();
-  const clave = clavesMapeadas[claveNormalizada];
+  const clave = clavesMapeadas[tipoLectura.trim().toLowerCase()];
   const plantilla = clave && plantillasLectura[clave];
 
+  // Instrucciones iniciales para la IA
+  let prompt = `Eres una tarotista profesional, empática y espiritual. Interpretarás una lectura del tarot Rider-Waite para ${nombre}, nacido/a el ${fecha}`;
+
+  if (nombreConsultado && fechaConsultado) {
+    prompt += `, en relación con ${nombreConsultado}, nacido/a el ${fechaConsultado}`;
+  }
+
+  prompt += `. Las cartas deben ser interpretadas en el orden exacto en que fueron generadas: ${nombresCartas}.`;
+
+  prompt += ` Responde en español neutro, usando siempre segunda persona ("tú", "te", "contigo"), sin frases ambiguas, sin adornos innecesarios, sin repeticiones. No uses frases como “las cartas que seleccionaste”.`;
+
+  // Agregar estructura específica
   if (plantilla) {
-    // Si es vidas pasadas, requiere acceso a las cartas
     if (clave === 'VidasPasadas') {
       prompt += `\n\n${plantilla({ nombre, cartas })}`;
     } else {
       prompt += `\n\n${plantilla({ contexto })}`;
     }
   } else {
-    prompt += `\n\nRealizá una lectura intuitiva basada en las cartas seleccionadas, manteniendo el orden exacto. Usá un lenguaje esperanzador y espiritual.`;
+    prompt += `\n\nRealiza una lectura completa y espiritual basada en el orden de las cartas, con interpretaciones precisas y claras.`;
   }
 
+  // Instrucción adicional solo para lectura general
   if (clave === 'General') {
-    prompt += `\n\nAl final, agregá una breve reflexión personalizada para cada área (Amor, Trabajo, Dinero, Salud y Familia), según la energía de las cartas.`;
+    prompt += ` Concluye cada aspecto con una reflexión breve, clara y alineada con la energía mostrada.`;
   }
+
+  // Límite de tokens recordatorio (no se envía a IA pero sirve para control)
+  prompt += ` La respuesta no debe superar los 1100 tokens.`;
 
   return prompt;
 }
