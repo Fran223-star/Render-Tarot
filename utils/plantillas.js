@@ -1,114 +1,179 @@
-// archivo: plantillas.js
+// plantillasLectura.js (versión optimizada, neutra y empática)
 
 export const plantillasLectura = {
-  Amor: ({ nombre, genero, contexto }) => `Querid${genero === 'masculino' ? 'o' : genero === 'femenino' ? 'a' : 'e'} ${nombre}, esta es la lectura amorosa que he preparado para ti. Interpreta cada carta con un enfoque cálido y espiritual.
+  General: ({ contexto, nombre, genero }) => {
+    const saludo = genero === 'masculino' ? 'Querido' : 'Querida';
+    return `
+${saludo} ${nombre}, esto es lo que percibo en tu lectura general:
 
-1. Situación actual
-2. Primer aspecto importante
-3. Segundo aspecto importante
-4. Tercer aspecto importante
-5. Consejo final
+Contexto sentimental: "${contexto}"
 
-Ten presente que esta interpretación se basa en tu contexto actual, con una visión esperanzadora y respetuosa.`,
+Lectura general de 25 cartas (respetar este orden):
 
-  Pareja: ({ nombre, genero, contexto }) => `Querid${genero === 'masculino' ? 'o' : genero === 'femenino' ? 'a' : 'e'} ${nombre}, esta es la lectura para tu relación de pareja. A continuación se interpretarán las cartas en el orden en que salieron:
+Amor: situación actual, influencias, desafío, consejo, resultado.
+Trabajo: situación actual, influencias, desafío, consejo, resultado.
+Dinero: situación actual, influencias, desafío, consejo, resultado.
+Salud: situación actual, influencias, desafío, consejo, resultado.
+Familia: situación actual, influencias, desafío, consejo, resultado.
 
-1. Situación actual
-2. Primera pregunta clave
-3. Segunda pregunta clave
-4. Tercera pregunta clave
-5. Cuarta pregunta clave
+Utiliza un tono profesional, claro, realista y esperanzador, adaptando la interpretación a la situación actual del consultante. Usa exclusivamente el trato de "tú" y "ti".`;
+  },
+
+  Pareja: ({ contexto, nombre, genero }) => {
+    const saludo = genero === 'masculino' ? 'Querido' : 'Querida';
+    return `
+${saludo} ${nombre}, esto es lo que percibo en tu lectura de pareja:
+
+Contexto emocional: "${contexto}"
+
+Lectura de 6 cartas:
+1. Situación actual del vínculo
+2. Pregunta 1
+3. Pregunta 2
+4. Pregunta 3
+5. Pregunta 4
 6. Consejo final
 
-Ten en cuenta que esta lectura está adaptada a tu contexto, con un tono realista y esperanzador, sin usar modismos regionales.`,
+Responde de forma directa, emocional y con contención. No uses frases vagas ni modismos regionales. Usa un español neutro con "tú" y "ti".`;
+  },
 
-  Expareja: ({ nombre, genero, contexto }) => `Querid${genero === 'masculino' ? 'o' : genero === 'femenino' ? 'a' : 'e'} ${nombre}, esta es la lectura sobre tu vínculo con tu ex pareja. Cada carta será interpretada con base en tu situación actual, en el orden exacto en que apareció:
+  Amor: ({ contexto, nombre, genero }) => {
+    const saludo = genero === 'masculino' ? 'Querido' : 'Querida';
+    return `
+${saludo} ${nombre}, esto es lo que percibo en tu lectura de amor:
 
+Contexto sentimental: "${contexto}"
+
+Lectura de 5 cartas:
 1. Situación actual
-2. ¿Qué siente actualmente por ti?
-3. ¿Qué desea o espera?
-4. ¿Tiene intención de regresar?
-5. ¿Cómo avanza su vida sin ti?
-6. Consejo espiritual
+2. Pregunta 1
+3. Pregunta 2
+4. Pregunta 3
+5. Consejo final
 
-✨ Al finalizar, brindarás una reflexión cálida y realista sobre si es conveniente hacer un ritual simbólico de cierre emocional o reconciliación, según la energía de las cartas.`,
+Responde en tono emocional, realista, profesional y respetuoso. Siempre usa "tú" y "ti".`;
+  },
 
-  NuevoVinculo: ({ nombre, genero, contexto }) => `Querid${genero === 'masculino' ? 'o' : genero === 'femenino' ? 'a' : 'e'} ${nombre}, esta lectura está destinada a explorar tu posible nuevo vínculo amoroso. Interpretaré cada carta respetando el orden exacto:
+  Expareja: ({ contexto, nombre, genero }) => {
+    const saludo = genero === 'masculino' ? 'Querido' : 'Querida';
+    return `
+${saludo} ${nombre}, esto es lo que percibo en tu lectura sobre tu expareja:
 
+Texto del consultante: "${contexto}"
+
+Lectura de 6 cartas. Orden:
+1. Situación actual del vínculo
+2. Pregunta 1
+3. Pregunta 2
+4. Pregunta 3
+5. Pregunta 4
+6. Consejo final
+
+Responde con claridad, sin juzgar y adaptando la interpretación al contexto actual. Usa exclusivamente el trato "tú" y "ti". No uses frases como “las cartas que seleccionaste”.
+
+Al final, incluye este mensaje:
+
+Además, considerando lo vivido entre ustedes, podrías trabajar en un proceso energético conocido como endulzamiento. Este ritual muy sutil y respetuoso ayuda a disipar energías negativas, bloqueos emocionales y abrir nuevamente caminos de amor, deseo y reconciliación. Es un impulso dulce que no fuerza voluntades, sino que limpia y favorece la renovación sana del vínculo, permitiendo que todo pueda fluir desde el corazón.`;
+  },
+
+  NuevoVinculo: ({ contexto, nombre, genero }) => {
+    const saludo = genero === 'masculino' ? 'Querido' : 'Querida';
+    return `
+${saludo} ${nombre}, esto es lo que percibo en tu lectura sobre un nuevo vínculo:
+
+Contexto amoroso: "${contexto}"
+
+Lectura de 6 cartas:
 1. Situación actual
-2. ¿Qué tipo de persona se acerca a tu vida?
-3. ¿Qué aprendizaje traerá esta conexión?
-4. ¿Cómo deberías prepararte emocionalmente?
-5. ¿Qué energía deberías dejar atrás?
-6. Consejo esperanzador
+2. Qué siente la otra persona
+3. Qué piensa
+4. Qué intenciones tiene
+5. Bloqueo u obstáculo
+6. Consejo final
 
-Todo el análisis se realizará con un enfoque espiritual, cálido y sin modismos, respondiendo de manera empática a tu contexto.`,
+Tono emocional, realista, claro y esperanzador. Hablas en español neutro universal, evitando cualquier modismo regional de Argentina, España u otros países. No usas expresiones como "vuestra", "conoceréis", "sentís", "habláis", "vos", ni "ustedes". Siempre usas exclusivamente el tratamiento en segunda persona del singular con "tú" y "ti".
 
-  General: ({ nombre, genero, contexto }) => `Querid${genero === 'masculino' ? 'o' : genero === 'femenino' ? 'a' : 'e'} ${nombre}, esta es la lectura general que percibo para ti. A continuación, se interpretarán las cartas en el orden dado, abordando los siguientes aspectos:
+Cuando se te da una estructura específica o una plantilla, debes seguirla con precisión. Interpreta las cartas en el orden exacto en que fueron dadas. No inventes nombres, ni agregues saludos al final como "con cariño".`;
+  },
 
-1. Amor
-2. Trabajo
-3. Dinero
-4. Salud
-5. Familia
+  VidasPasadas: ({ nombre, genero, cartas }) => {
+    const saludo = genero === 'masculino' ? 'Querido' : 'Querida';
+    const c = (i) => cartas[i]?.nombre || '[nombre de la carta]';
+    return `
+${saludo} ${nombre}, esto es lo que revelan las cartas sobre tus vidas pasadas:
 
-Cada aspecto será interpretado de manera clara y respetuosa, teniendo en cuenta tu contexto actual. El tono será espiritual, esperanzador y neutro.`,
+1. ¿Quién fuiste en una vida pasada significativa? – ${c(0)}
+2. ¿Qué experiencias marcantes viviste en esa vida? – ${c(1)}
+3. ¿Qué heridas o karmas arrastras desde esa vida? – ${c(2)}
+4. ¿Qué don o sabiduría traes desde esa vida? – ${c(3)}
+5. ¿Qué patrón se repite en esta vida? – ${c(4)}
+6. ¿Cuál es tu misión actual, en esta vida? – ${c(5)}
+7. Consejo profundo del alma – ${c(6)}
 
-  Celta: ({ nombre, genero, contexto }) => `Querid${genero === 'masculino' ? 'o' : genero === 'femenino' ? 'a' : 'e'} ${nombre}, esta es tu lectura celta completa. A continuación se interpretarán las cartas según las siguientes posiciones:
+Cierra con un resumen final que integre lo aprendido y lo que estás llamado a transformar. Usa un tono empático, espiritual, claro, neutro y esperanzador.`;
+  },
 
-1. Situación actual
-2. Influencias inmediatas
-3. Base de la situación
-4. Pasado reciente
-5. Influencias futuras
-6. Conflictos o temores
-7. Actitud del consultante
-8. Entorno o influencias externas
-9. Expectativas o deseos
-10. Resultado final
+  Abundancia: ({ contexto, nombre, genero }) => {
+    const saludo = genero === 'masculino' ? 'Querido' : 'Querida';
+    return `
+${saludo} ${nombre}, esto es lo que revelan las cartas sobre tu camino hacia la abundancia:
 
-Interpreta cada punto de forma espiritual, cálida y neutra, en relación con tu contexto actual.`,
+Contexto: "${contexto}"
 
-  Abundancia: ({ nombre, genero, contexto }) => `Querid${genero === 'masculino' ? 'o' : genero === 'femenino' ? 'a' : 'e'} ${nombre}, esta es tu lectura sobre abundancia y prosperidad. Las cartas se interpretarán en el orden en que salieron, siguiendo esta estructura:
+Lectura de 10 cartas (interpretar en este orden):
+1. Energía actual respecto a la abundancia
+2. Bloqueo o creencia limitante
+3. Origen del bloqueo
+4. Recursos ocultos o talentos desaprovechados
+5. Oportunidades en camino
+6. Acción clave para atraer prosperidad
+7. Cómo gestionar mejor sus finanzas
+8. Consejo del universo
+9. Posibles obstáculos futuros
+10. Resultado final si se sigue el consejo
 
-1. Situación actual
-2. Bloqueos o desafíos
-3. Influencias del pasado
-4. Tendencias actuales
-5. Oportunidades próximas
-6. Recurso oculto o interno
-7. Aspectos a transformar
-8. Apoyo disponible
-9. Futuro cercano
-10. Futuro lejano
+Cierra con un resumen claro de la lectura, integrando todo lo revelado en un mensaje esperanzador, práctico y alineado al contexto. Usa sólo "tú" y "ti".`;
+  },
 
-Esta guía espiritual está adaptada a tu contexto y se expresará de forma neutra y empática.`,
+  Proteccion: ({ contexto, nombre, genero }) => {
+    const saludo = genero === 'masculino' ? 'Querido' : 'Querida';
+    return `
+${saludo} ${nombre}, esto es lo que percibo en tu lectura sobre protección energética:
 
-  Proteccion: ({ nombre, genero, contexto }) => `Querid${genero === 'masculino' ? 'o' : genero === 'femenino' ? 'a' : 'e'} ${nombre}, aquí tienes tu lectura de protección y energía. Las cartas serán interpretadas respetando esta estructura:
+Contexto: "${contexto}"
 
-1. Estado energético actual
-2. Influencias negativas
-3. Influencias positivas
-4. Protección espiritual presente
-5. Energías por liberar
-6. Elementos que te fortalecen
-7. Energías futuras
-8. Consejo de protección
-9. Resultado energético esperado
+Lectura de 9 cartas:
+1. Energía actual
+2. Energía externa influyente
+3. Origen del bloqueo
+4. Punto vulnerable
+5. Cómo protegerse
+6. Aliado espiritual
+7. Resultado si sigues el consejo
+8. Resumen de la lectura
+9. Consejos de protección energética
 
-Todo será expresado con lenguaje neutro, espiritual y empático, en relación con tu situación actual.`,
+Tono claro, protector, profesional y esperanzador. Sólo usa lenguaje neutro y dirigido a "tú".`;
+  },
 
-  VidasPasadas: ({ nombre, genero, cartas }) => `Querid${genero === 'masculino' ? 'o' : genero === 'femenino' ? 'a' : 'e'} ${nombre}, esta es tu lectura de vidas pasadas. Las cartas seleccionadas se interpretarán en este orden:
+  Celta: ({ nombre, genero }) => {
+    const saludo = genero === 'masculino' ? 'Querido' : 'Querida';
+    return `
+${saludo} ${nombre}, esto es lo que revelan las cartas en tu lectura Cruz Celta:
 
-1. Vida pasada predominante
-2. Personalidad que tuviste
-3. Lecciones aprendidas
-4. Conflictos no resueltos
-5. Conexión con personas actuales
-6. Heridas o traumas que influyen hoy
-7. Dones que traes de esa vida
-8. Cómo sanar e integrar esas memorias
-9. Consejo espiritual final
+Lectura de 10 cartas. Interprétalas en este orden:
 
-Esta lectura se presentará con un tono cálido, realista y sin modismos.`
+1. Situación actual – ¿Dónde estás parado ahora mismo? ¿Qué está pasando?
+2. Obstáculo o desafío – ¿Qué está bloqueando tu avance o complicando la situación?
+3. Lo que hay en la base (subconsciente) – Lo que sentís en lo profundo aunque no lo veas claro. Motivaciones ocultas.
+4. El pasado reciente – Qué experiencia o hecho reciente influyó en lo que estás viviendo.
+5. Lo que está por venir (futuro inmediato) – Lo que se aproxima si todo sigue igual.
+6. Lo que pensás o deseás (consciente) – Tu mentalidad actual, deseos o expectativas.
+7. Cómo te ves a ti mismo – Tu actitud o posición en esta situación.
+8. Cómo te ven los demás / el entorno – Lo que tu entorno piensa, espera o cómo te afecta.
+9. Miedos o esperanzas – Lo que te preocupa o lo que deseás en el fondo, aunque no lo digas.
+10. Resultado probable – La dirección general que va tomando todo esto si no hay cambios.
+
+Usa exclusivamente español neutro, sin modismos. El tono debe ser profesional, realista, claro y con una mirada esperanzadora.`;
+  }
 };
