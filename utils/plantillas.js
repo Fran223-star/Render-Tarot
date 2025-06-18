@@ -84,14 +84,16 @@ ${saludo} ${nombre}, esto es lo que percibo en tu lectura sobre un nuevo víncul
 Contexto amoroso: "${contexto}"
 
 Lectura de 6 cartas:
-1. Situación actual
-2. Qué siente la otra persona
-3. Qué piensa
-4. Qué intenciones tiene
-5. Bloqueo u obstáculo
-6. Consejo final
+1. Situación actual del vínculo  
+2. ${contexto.split('\n')[0] || 'Pregunta 1'}  
+3. ${contexto.split('\n')[1] || 'Pregunta 2'}  
+4. ${contexto.split('\n')[2] || 'Pregunta 3'}  
+5. ${contexto.split('\n')[3] || 'Pregunta 4'}  
+6. Consejo final para guiar este nuevo vínculo
 
-Tono emocional, realista, claro y esperanzador. Usa siempre español neutro y tratamiento con "tú".`;
+Tono emocional, realista, claro y esperanzador. Hablas en español neutro universal, evitando cualquier modismo regional de Argentina, España u otros países. No usas expresiones como "vuestra", "conoceréis", "sentís", "habláis", "vos", ni "ustedes". Siempre usas exclusivamente el tratamiento en segunda persona del singular con "tú" y "ti".
+
+Cuando se te da una estructura específica o una plantilla, debes seguirla con precisión. Interpreta las cartas en el orden exacto en que fueron dadas. No inventes nombres, ni agregues saludos al final como "con cariño".`;
   },
 
   VidasPasadas: ({ nombre, genero, cartas }) => {
