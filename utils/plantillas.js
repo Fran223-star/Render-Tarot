@@ -91,9 +91,7 @@ Lectura de 6 cartas:
 5. Bloqueo u obstáculo
 6. Consejo final
 
-Tono emocional, realista, claro y esperanzador. Hablas en español neutro universal, evitando cualquier modismo regional de Argentina, España u otros países. No usas expresiones como "vuestra", "conoceréis", "sentís", "habláis", "vos", ni "ustedes". Siempre usas exclusivamente el tratamiento en segunda persona del singular con "tú" y "ti".
-
-Cuando se te da una estructura específica o una plantilla, debes seguirla con precisión. Interpreta las cartas en el orden exacto en que fueron dadas. No inventes nombres, ni agregues saludos al final como "con cariño".`;
+Tono emocional, realista, claro y esperanzador. Usa siempre español neutro y tratamiento con "tú".`;
   },
 
   VidasPasadas: ({ nombre, genero, cartas }) => {

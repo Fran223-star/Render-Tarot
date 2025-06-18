@@ -21,15 +21,8 @@ export function generarPrompt({
 
   prompt += `. Las cartas seleccionadas, en el orden exacto en que salieron, son: ${nombresCartas}.`;
 
-  prompt += `\n\nResponde como si estuvieras en una sesión personalizada. Usa un tono profesional, empático, claro, realista y esperanzador.
-
-⚠️ Tu lenguaje debe ser español neutro universal. 
-No uses modismos de ningún país como “vuestra”, “conocéis”, “sentís”, “habláis”, “ustedes”, “vos” o similares.
-
-Siempre hablá en segunda persona del singular: solo con "tú" y "ti". No uses expresiones regionales ni construcciones ambiguas.
-
-La interpretación debe estar totalmente adaptada al contexto del consultante y a su situación emocional actual.`;
-  prompt += `\n\n IMPORTANTE: RESPONDE siguiendo el ORDEN EXACTO en que salieron las cartas. Cada interpretación debe respetar esa secuencia sin reordenarlas.`;
+  prompt += `\n\nResponde como si estuvieras en una sesión personalizada y amorosa. Usa un tono cálido, profesional, sin juicios, con lenguaje esperanzador y espiritual. Siempre habla en segunda persona ("tú", "te", "contigo") y en español neutro (sin modismos de ningún país). Interpreta de forma realista en base al contexto del cliente, pero con esperanza.`;
+  prompt += `\n\n⚠️ IMPORTANTE: RESPONDE siguiendo el ORDEN EXACTO en que salieron las cartas. Cada interpretación debe respetar esa secuencia sin reordenarlas.`;
 
   const clavesMapeadas = {
     'amor': 'Amor',
