@@ -78,23 +78,25 @@ Además, considerando lo vivido entre ustedes, podrías trabajar en un proceso e
 
   NuevoVinculo: ({ contexto, nombre, genero }) => {
     const saludo = genero === 'masculino' ? 'Querido' : 'Querida';
-    return `
-${saludo} ${nombre}, esto es lo que percibo en tu lectura sobre un nuevo vínculo:
 
-Contexto amoroso: "${contexto}"
+    return `
+${saludo} ${nombre}, esto es lo que percibo en tu lectura de nuevo vínculo amoroso:
+
+Contexto emocional: "${contexto}"
 
 Lectura de 6 cartas:
-1. Situación actual del vínculo  
-2. ${contexto.split('\n')[0] || 'Pregunta 1'}  
-3. ${contexto.split('\n')[1] || 'Pregunta 2'}  
-4. ${contexto.split('\n')[2] || 'Pregunta 3'}  
-5. ${contexto.split('\n')[3] || 'Pregunta 4'}  
-6. Consejo final para guiar este nuevo vínculo
+1. Situación actual del vínculo (interpreta en base al contexto y como un vínculo reciente o en inicio).
+2. Pregunta 1.
+3. Pregunta 2.
+4. Pregunta 3.
+5. Pregunta 4.
+6. Consejo final.
 
-Tono emocional, realista, claro y esperanzador. Hablas en español neutro universal, evitando cualquier modismo regional de Argentina, España u otros países. No usas expresiones como "vuestra", "conoceréis", "sentís", "habláis", "vos", ni "ustedes". Siempre usas exclusivamente el tratamiento en segunda persona del singular con "tú" y "ti".
-
-Cuando se te da una estructura específica o una plantilla, debes seguirla con precisión. Interpreta las cartas en el orden exacto en que fueron dadas. No inventes nombres, ni agregues saludos al final como "con cariño".`;
+Responde de forma directa, emocional y con contención. 
+No uses frases vagas ni modismos regionales. Usa un español neutro con "tú" y "ti". 
+No asumas que hay una historia en común o relación consolidada. El vínculo debe interpretarse como reciente, con atracción o curiosidad incipiente.`;
   },
+
 
   VidasPasadas: ({ nombre, genero, cartas }) => {
     const saludo = genero === 'masculino' ? 'Querido' : 'Querida';
@@ -156,24 +158,74 @@ Lectura de 9 cartas:
 Tono claro, protector, profesional y esperanzador. Sólo usa lenguaje neutro y dirigido a "tú".`;
   },
 
-  Celta: ({ nombre, genero }) => {
-    const saludo = genero === 'masculino' ? 'Querido' : 'Querida';
-    return `
-${saludo} ${nombre}, esto es lo que revelan las cartas en tu lectura Cruz Celta:
+ Celta: ({ nombre, genero, contexto }) => {
+  const saludo = genero === 'masculino' ? 'Querido' : 'Querida';
+  return `
+${saludo} ${nombre}, esta es tu lectura Cruz Celta, realizada en base a tu consulta:
+
+"${contexto}"
+
+A continuación, interpreta cada una de las 10 cartas según su posición y **relaciónalas directamente con el tema consultado**. Sé claro y preciso.
 
 Lectura de 10 cartas. Interprétalas en este orden:
 
-1. Situación actual – ¿Dónde estás parado ahora mismo? ¿Qué está pasando?
-2. Obstáculo o desafío – ¿Qué está bloqueando tu avance o complicando la situación?
-3. Lo que hay en la base (subconsciente) – Lo que sentís en lo profundo aunque no lo veas claro. Motivaciones ocultas.
-4. El pasado reciente – Qué experiencia o hecho reciente influyó en lo que estás viviendo.
-5. Lo que está por venir (futuro inmediato) – Lo que se aproxima si todo sigue igual.
-6. Lo que pensás o deseás (consciente) – Tu mentalidad actual, deseos o expectativas.
-7. Cómo te ves a ti mismo – Tu actitud o posición en esta situación.
-8. Cómo te ven los demás / el entorno – Lo que tu entorno piensa, espera o cómo te afecta.
-9. Miedos o esperanzas – Lo que te preocupa o lo que deseás en el fondo, aunque no lo digas.
-10. Resultado probable – La dirección general que va tomando todo esto si no hay cambios.
+1. Situación actual 🟡 ¿Dónde estás parado ahora mismo respecto a tu consulta? ¿Qué está pasando?
+2. Obstáculo o desafío 🟡 ¿Qué está bloqueando tu avance o complicando la situación?
+3. Lo que hay en la base (subconsciente) 🟡 Lo que sentís en el fondo aunque no lo expreses. Motivaciones ocultas.
+4. El pasado reciente 🟡 Qué hecho reciente influyó en esta situación.
+5. Lo que está por venir (futuro inmediato) 🟡 Qué se aproxima si todo sigue igual.
+6. Lo que pensás o deseás (consciente) 🟡 Tu mentalidad actual, deseos o expectativas respecto a la consulta.
+7. Cómo te ves a ti mismo 🟡 Tu actitud o posición frente al problema.
+8. Cómo te ven los demás / el entorno 🟡 Cómo el entorno percibe la situación o te afecta.
+9. Miedos o esperanzas 🟡 Lo que temés o deseás profundamente.
+10. Resultado probable 🟡 La dirección general que tomará todo esto si no hay cambios.
 
-Usa exclusivamente español neutro, sin modismos. El tono debe ser profesional, realista, claro y con una mirada esperanzadora.`;
-  }
+Usa exclusivamente español neutro, sin modismos. El tono debe ser profesional, claro, realista, cálido y con una mirada esperanzadora.
+`;
+},
+
+
+  UnaPregunta: ({ nombre, genero, contexto }) => {
+    const saludo = genero === 'masculino' ? 'Querido' : 'Querida';
+
+    return `
+  ${saludo} ${nombre}, gracias por tu confianza. A continuación interpretaremos 3 cartas para responder tu pregunta: "${contexto}".
+  
+  Las 3 cartas deben interpretarse en conjunto para brindar una respuesta completa y un consejo espiritual.
+  
+  Responde de forma directa, cálida y realista, usando un lenguaje profesional y en español neutro con "tú" y "ti".`;
+  },
+
+  DosPreguntas: ({ nombre, genero, contexto }) => {
+    const saludo = genero === 'masculino' ? 'Querido' : 'Querida';
+    const [pregunta1, pregunta2] = contexto.split('|').map(p => p.trim());
+
+    return `
+  ${saludo} ${nombre}, gracias por tu consulta. Vamos a interpretar 6 cartas en total, divididas en 2 bloques de 3 cartas, una por cada pregunta.
+  
+  🔹 Pregunta 1: "${pregunta1}"  
+  🔹 Pregunta 2: "${pregunta2}"
+  
+  Cada grupo de 3 cartas debe brindar una respuesta completa y un consejo espiritual por separado para cada pregunta.
+  
+  Responde de forma profesional, cálida y clara. Usa solo español neutro con "tú" y "ti".`;
+  },
+
+  TresPreguntas: ({ nombre, genero, contexto }) => {
+    const saludo = genero === 'masculino' ? 'Querido' : 'Querida';
+    const [pregunta1, pregunta2, pregunta3] = contexto.split('|').map(p => p.trim());
+
+    return `
+  ${saludo} ${nombre}, gracias por compartir tus inquietudes. Vamos a interpretar 9 cartas en total, distribuidas en 3 bloques de 3 cartas.
+  
+  🔹 Pregunta 1: "${pregunta1}"  
+  🔹 Pregunta 2: "${pregunta2}"  
+  🔹 Pregunta 3: "${pregunta3}"
+  
+  Cada bloque de 3 cartas debe responder claramente y cerrar con un consejo emocional y espiritual para ti.
+  
+  Habla siempre con claridad, calidez y precisión. Usa un español neutro (solo "tú" y "ti"), sin modismos ni frases ambiguas.`;
+  },
 };
+
+

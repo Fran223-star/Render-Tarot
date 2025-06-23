@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-  origin: ['https://senderodelaluna.com.ar'],
+  origin: ['http://localhost:5173'],
   methods: ['POST'],
   allowedHeaders: ['Content-Type'],
 }));
